@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block home %}
+{% endblock home %}
+
+{% block resume %}
+{% endblock resume %}
+
+{% block about %}
+{% endblock about %}
+
+{% block social %}
+{% endblock social %}
+
+{% block contact %}
+{% endblock contact %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+  <div class="container">
+  <h2>Login Here</h2>
+  {{user}}
+  <form method="POST" class="form-group">
+    {% csrf_token %}
+    {{form.as_p}}
+    <br>
+      <p>Don't have an account? Create one <a href="/register/">here</a></p>
+    <br>
+    <button type="submit" class="btn btn-success">Login</button>
+  </form>
+    <br>
+    <button><a href="#">Google Login</a></button>
+    <button><a href="#">Facebook Login</a></button>
+  </div>
+{% endblock body %}

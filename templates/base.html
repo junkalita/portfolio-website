@@ -1,0 +1,203 @@
+<head>
+
+    {% load static %}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".reply-btn").click(function(){
+        $(this).parent().parent().next(".replied-comments").fadeToggle();
+      });
+    });
+  </script>
+
+    <!-- semantic UI -->
+  <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+  	<link rel="stylesheet" href="{% static "css/templatemo-style.css" %}">
+  	<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
+
+
+    <!-- Prism CSS -->
+    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static "css/materialize.css" %}">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
+</head>
+
+
+<body>
+  <nav class="black">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="{% url 'blogs:blog_list' %}">Blog</a></li>
+        <li><a href="/register/">Register</a></li>
+        <li><a href="/login/">Login</a></li>
+        <li><a href="/logout/">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- START HOME -->
+  {% block home %}
+	<section id="home" class="templatemo-home">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-sm-1"></div>
+				<div class="col-md-8 col-sm-10">
+					<h1 class="tm-home-title"><strong>CodeyPY</strong></h1>
+					<h2 class="tm-home-subtitle">Web Developer</h2>
+					<p>I am a professional <strong>Web Developer</strong> and <strong>Front-End Developer</strong> creating modern and responsive designs for <strong>Web</strong> and <strong>Mobile</strong>. Let us work together. Thank you.</p>
+
+				</div>
+				<div class="col-md-2 col-sm-1"></div>
+			</div>
+		</div>
+	</section>
+  {% endblock home %}
+  <!-- END HOME -->
+
+  <!-- START RESUME -->
+{% block resume %}
+	<section id="resume" class="tm-padding-top-bottom-100">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<h2 class="title">My <strong>Profile</strong></h2>
+					<p><span class="tm-info-label">Name</span> Jun Kalita</p>
+					<p><span class="tm-info-label">Birthday</span> March 16, 1996</p>
+					<p><span class="tm-info-label">Address</span> Assam, India</p>
+					<p><span class="tm-info-label">Phone</span> +91 8473803520 | 009 080 0760</p>
+					<p><span class="tm-info-label">Email</span> junkalita18@gmail.com</p>
+					<p><span class="tm-info-label">Website</span> <a href="#" class="tm-red-text">www.company.com</a></p>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<h2 class="title"><strong>Some</strong> Skills</h2>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+					<h4 class="tm-progress-label">Django <small class="progress-percent-small">100%</small></h4>
+					<div class="progress tm-progress">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+					</div>
+					<h4 class="tm-progress-label">Python <small class="progress-percent-small">90%</small></h4>
+					<div class="progress tm-progress">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+					</div>
+					<h4 class="tm-progress-label">HTML-5 <small class="progress-percent-small">80%</small></h4>
+					<div class="progress tm-progress">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+  {% endblock resume %}
+	<!-- END RESUME -->
+
+  <!-- START ABOUT -->
+  {% block about %}
+	<section id="about" class="tm-about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-7">
+					<div class="title">
+						<h2>This is <strong>me</strong></h2>
+						<h1 class="tm-red-text">Creative <strong>Director</strong></h1>
+					</div>
+					<p>This is free Bootstrap v3.3.4 mobile friendly layout from <a rel="nofollow" href="https://templatemo.com">templatemo</a>. Feel free to use it for your website. Credit goes to <a rel="nofollow" href="https://pixabay.com">Pixabay</a> for photos used in this template. Dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+  {% endblock about %}
+	<!-- END ABOUT -->
+
+	<!-- START SOCIAL -->
+  {% block social %}
+	<section id="social" class="tm-social">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.3s">
+					<div class="media facebook">
+						<a href="#">
+							<div class="media-object pull-left">
+								<i class="fa fa-facebook"></i>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading tm-social-title">Follow me on</h4>
+								<h3>Social Facebook</h3>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.6s">
+					<div class="media twitter">
+						<a href="#">
+							<div class="media-object pull-left">
+								<i class="fa fa-twitter"></i>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading tm-social-title">Tweet me on</h4>
+								<h3>Social Twitter</h3>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.9s">
+					<div class="media pinterest">
+						<a href="#">
+							<div class="media-object pull-left">
+								<i class="fa fa-pinterest"></i>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading tm-social-title">Pin me on</h4>
+								<h3>Social Pinterest</h3>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+  {% endblock social %}
+	<!-- END SOCIAL -->
+
+	<!-- START CONTACT -->
+  {% block contact %}
+
+  {% endblock contact %}
+	<!-- END CONTACT -->
+
+
+  {% block body %}
+
+  {% endblock body %}
+
+
+</body>
+
+
+<!-- Prism JS -->
+<script src="{% static "tinymce/js/prism.js" %}"></script>
+<script>M.AutoInit();</script>
+
+
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/smoothscroll.js" %}"></script>
+<script src="{% static "js/jquery.nav.js" %}"></script>
+<script src="{% static "js/isotope.js" %}></script>
+<script src="{% static "js/imagesloaded.min.js" %}></script>
+<script src="{% static "js/custom.js" %}></script>

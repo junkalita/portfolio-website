@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block home %}
+{% endblock home %}
+
+{% block resume %}
+{% endblock resume %}
+
+{% block about %}
+{% endblock about %}
+
+{% block social %}
+{% endblock social %}
+
+{% block contact %}
+{% endblock contact %}
+
+{% block body %}
+
+<div class="container">
+<div class="row">
+
+    <div class="col s12, m8, l8">
+      <br>
+        <h3>{{blog_detail.blog_title}}</h3>
+        <p style="font-size:70%">Published On: {{blog_detail.blog_published}}</p>
+        {{blog_detail.blog_content|safe}}
+    </div>
+
+    <div class="col s12 m4 l4">
+            <ul class="collapsible popout">
+                {% for blog in sidebar %}
+                    {% if forloop.counter0 == blog_idx %}
+                        <li class="active">
+                            <div class="collapsible-header">{{blog.blog_title}}<br>(currently viewing)</div>
+                        </li>
+                    {% else %}
+                        <li>
+                            <div class="collapsible-header">{{blog.blog_title}}</div>
+                            <div class="collapsible-body">
+                                <p><a href="/{{blog.slug}}"><button class="btn waves-effect waves-light right-align" style="background-color:yellow; color:black">Go</button></a></p>
+
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+</div>
+
+<br><br>
+<hr>
+
+
+
+<div class="main-comment-section">
+  <div class="container-fluid mt-2">
+    <div class="form-group row">
+      <form method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        {% if request.user.is_authenticated %}
+          <input type="submit" value="Comment" class="btn btn-outline-success">
+        {% else %}
+          <input type="submit" value="Comment" class="btn btn-outline-success" disabled>
+        {% endif %}
+      </form>
+    </div>
+
+  </div>
+
+  {{ comments.count }} Comment{{ comments|pluralize }}
+
+  {% for comment in comments %}
+  <blockquote class="blockquote">
+    <p class="mb-0"><small>{{comment.content}}</small></p>
+    <footer class="blockquote-footer">by <cite title="Source Title">{{comment.user|capfirst}}</cite>
+      <br>
+      <br>
+      <button type="button" name="button" class="reply-btn btn btn-outline-dark btn-sm ml-2">Reply</button>
+    </footer>
+  </blockquote>
+
+  <div class="replied-comments container mt-2" style="display:none;">
+    {% for reply in comment.replies.all %}
+        <blockquote class="blockquote">
+          <p class="mb-0"><small>{{reply.content}}</small></p>
+          <footer class="blockquote-footer">by <cite title="Source Title">{{reply.user|capfirst}}</cite></footer>
+        </blockquote>
+    {% endfor %}
+    <div class="form-group row">
+      <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="comment_id" value="{{comment.id}}">
+        {{ comment_form.as_p }}
+        {% if request.user.is_authenticated %}
+          <input type="submit" value="Submit" class="btn btn-outline-success">
+        {% else %}
+          <input type="submit" value="Submit" class="btn btn-outline-success" disabled>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+</div>
+
+{% endblock body %}
